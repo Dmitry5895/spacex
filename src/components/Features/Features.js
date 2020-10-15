@@ -1,7 +1,15 @@
 import React from "react";
+import RelaxWrapper from 'react-rellax-wrapper';
 import "./features.css";
 
-const Features = () => (
+const imageRocket = {
+  'Falcon 1': 'falcon-1',
+  'Falcon 9': 'falcon-9',
+  'Falcon Heavy': 'falcon-heavy',
+  other: 'starship',
+}
+
+const Features = (props) => (
   <section className="features">
     <h2 className="features-title">
       Falcon 1 <br />
@@ -29,12 +37,13 @@ const Features = () => (
           </tr>
         </thead>
       </table>
+      <RelaxWrapper speed={14}>
       <img
-        src="img/falcon-1.png"
+        src={`./img/${imageRocket.hasOwnProperty(props.rocket) ? imageRocket[props.rocket] : imageRocket.other}.png`}
         alt="rocket"
         className="rocket"
-        data-rellax-speed="14"
       />
+      </RelaxWrapper>
       <article>
         <h3 className="features-subtitle">DESCRIPTION</h3>
         <p className="features-text">

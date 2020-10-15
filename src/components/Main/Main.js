@@ -1,10 +1,17 @@
 import React from "react";
 import "./main.css";
 
+const video = {
+  'Falcon 1': 'moon',
+  'Falcon 9': 'earth',
+  'Falcon Heavy': 'mars',
+  other: 'space',
+}
 
-const Main = () => (
+
+const Main = (props) => (
   <section className="main">
-    <h1 className="title">Falcon 1</h1>
+    <h1 className="title">{props.rocket}</h1>
 
     <div className="video-container">
       <video
@@ -12,8 +19,7 @@ const Main = () => (
         autoPlay
         loop
         muted
-        src="./video/moon.mp4"
-      ></video>
+        src={`./video/${video.hasOwnProperty(props.rocket) ? video[props.rocket] : video.other}.mp4`} />
     </div>
   </section>
 );
