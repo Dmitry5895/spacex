@@ -2,14 +2,14 @@ import React from "react";
 import logo from '../../logo.svg';
 import "./footer.css";
 
-const Footer = () => (
+const Footer = (props) => (
   <footer className="footer">
     <img src={logo} alt="logo Space X" className="logo" />
     <nav className="footer-nav">
       <ul className="list">
         <li className="item">
           <a
-            href="/"
+            href={props.information ? props.information : 'https://twitter.com/elonmusk'}
             rel="noopener noreferrer"
             target="_blank"
             className="item-link"
@@ -19,7 +19,7 @@ const Footer = () => (
         </li>
         <li className="item">
           <a
-            href="/"
+            href={props.information ? props.information : 'https://twitter.com/spacex'}
             rel="noopener noreferrer"
             target="_blank"
             className="item-link"
@@ -29,7 +29,7 @@ const Footer = () => (
         </li>
         <li className="item">
           <a
-            href="/"
+            href={props.information ? props.information : 'https://www.flickr.com/photos/spacex/'}
             rel="noopener noreferrer"
             target="_blank"
             className="item-link"
@@ -39,7 +39,7 @@ const Footer = () => (
         </li>
         <li className="item">
           <a
-            href="/"
+            href={props.information ? props.information : '/header'}
             rel="noopener noreferrer"
             target="_blank"
             className="item-link"
