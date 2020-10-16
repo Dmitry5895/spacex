@@ -1,7 +1,11 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import Main from "../Main/Main";
 import "./details.css";
 
 const Details = () => (
+	<>
+	<Main />
     <main class="details">
 		<div class="container">
 			<div class="details-row">
@@ -13,11 +17,12 @@ const Details = () => (
 				</div>
 			</div>
 			<div>
-				<iframe class="details-youtube" width="560" height="315" src="https://www.youtube.com/embed/dLQ2tZEH6G0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<iframe class="details-youtube" width="560" height="315" src="https://www.youtube.com/embed/dLQ2tZEH6G0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
 			</div>
 		</div>
-		<a href="calendar.html" class="button button-back">go back</a>
+		<NavLink to="/calendar" class="button button-back">go back</NavLink>
 	</main>
+	</>
 );
 
 export default Details;

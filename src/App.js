@@ -1,11 +1,16 @@
 import React from "react";
+import { BrowserRouter, Route} from 'react-router-dom';
 import Features from "./components/Features/Features";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+import Home from './components/Home/Home';
 import Main from "./components/Main/Main";
+import Calendar from "./components/Calendar/Calendar";
+import Details from "./components/Details/Details";
 import logo from "./logo.svg";
 import FetchData from './service/FetchData';
 import "./style.css";
+
 
 class App extends React.Component {
 
@@ -15,12 +20,12 @@ class App extends React.Component {
     rocket: 'Falcon 1',
     rocketFeatures: null,
     rockets: [],
-    information: null,
+    links: null,
   };
 
   componentDidMount() {
     this.updateRocket();
-    this.updateInformation();
+    this.updateCompany();
   }
 
 
@@ -38,9 +43,9 @@ class App extends React.Component {
 
 }
 
-updateInformation() {
+updateCompany() {
   this.fetchData.getCompany()
-    .then(data => {this.setState({ information: data.information});
+    .then(company => {this.setState({ company });
     });
 }
 
@@ -54,12 +59,30 @@ changeRocket = rocket => {
   render() {
     console.log(this.state)
     return (
-      <>
-      <Header rockets={this.state.rockets} changeRocket={this.changeRocket}/>
-      <Main rocket={this.state.rocket} />
-      <Features rocket={this.state.rocket} rocketFeatures={this.state.rocketFeatures}/>
-      <Footer information={this.state.information}/>
-      </>
+      <BrowserRouter>
+        <Header rockets={this.state.rockets} changeRocket={this.changeRocket}/>
+
+        <Route exact path='/'>
+          {this.state.company && <Home company = {this.state.company} />}
+        </Route>
+
+        <Route path='/rocket'>
+          <Main rocket={this.state.rocket} />
+            {this.state.rocketFeatures && 
+            <Features {...this.state.rocketFeatures} />}
+        </Route>
+
+        <Route path='/calendar'>
+            <Calendar />
+        </Route>
+
+        <Route path='/details'>
+            <Details />
+        </Route>
+
+        {this.state.company && 
+            <Footer {...this.state.company.links} /> }
+        </BrowserRouter>
     );
   }
 }

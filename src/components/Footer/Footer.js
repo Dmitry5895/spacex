@@ -2,14 +2,14 @@ import React from "react";
 import logo from '../../logo.svg';
 import "./footer.css";
 
-const Footer = (props) => (
-  <footer className="footer">
+const Footer = ({elon_twitter: elonMask, flickr, twitter, website}) => (
+    <footer className="footer">
     <img src={logo} alt="logo Space X" className="logo" />
     <nav className="footer-nav">
       <ul className="list">
         <li className="item">
           <a
-            href={props.information ? props.information : 'https://twitter.com/elonmusk'}
+            href={elonMask}
             rel="noopener noreferrer"
             target="_blank"
             className="item-link"
@@ -19,7 +19,7 @@ const Footer = (props) => (
         </li>
         <li className="item">
           <a
-            href={props.information ? props.information : 'https://twitter.com/spacex'}
+            href={twitter}
             rel="noopener noreferrer"
             target="_blank"
             className="item-link"
@@ -29,7 +29,7 @@ const Footer = (props) => (
         </li>
         <li className="item">
           <a
-            href={props.information ? props.information : 'https://www.flickr.com/photos/spacex/'}
+            href={flickr}
             rel="noopener noreferrer"
             target="_blank"
             className="item-link"
@@ -39,7 +39,7 @@ const Footer = (props) => (
         </li>
         <li className="item">
           <a
-            href={props.information ? props.information : '/header'}
+            href={website}
             rel="noopener noreferrer"
             target="_blank"
             className="item-link"
@@ -56,6 +56,7 @@ const Footer = (props) => (
       </a>
     </p>
   </footer>
-);
+  );
+
 
 export default Footer;
