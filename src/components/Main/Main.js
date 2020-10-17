@@ -9,9 +9,9 @@ const video = {
 }
 
 
-const Main = ({rocket}) => (
+const Main = ({rocket, name}) => (
   <section className="main">
-    <h1 className="title">{rocket ? rocket: 'Календарь SpaceX' }</h1>
+    <h1 className="title">{name || rocket}</h1>
 
     {rocket && <div className="video-container">
       <video

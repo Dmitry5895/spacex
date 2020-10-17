@@ -1,5 +1,6 @@
 import React from "react";
 import RelaxWrapper from "react-rellax-wrapper";
+import Main from "../Main/Main";
 import "./features.css";
 
 const imageRocket = {
@@ -16,8 +17,9 @@ const Features = ({name,
   payload_weights: payloadWeights,
   description,}) => {
 
-  return (
+return (
     <>
+    <Main rocket={name} />
       <section className="features">
         <h2 className="features-title">
           {name} <br />
